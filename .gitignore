@@ -27,3 +27,7 @@ htmlcov/
 
 # Logs
 *.log
+
+# Database
+instance/
+*.db
