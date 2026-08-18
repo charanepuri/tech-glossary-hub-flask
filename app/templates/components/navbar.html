@@ -1,0 +1,54 @@
+<nav class="navbar">
+    <div class="container navbar-container">
+
+        <a href="{{ url_for('main.home') }}" class="brand">
+            <span class="brand-mark">&lt;/&gt;</span>
+            <span class="brand-text">Tech Glossary Hub</span>
+        </a>
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="nav-menu" id="navMenu">
+
+            <a
+                href="{{ url_for('main.home') }}"
+                class="nav-link"
+            >
+                Home
+            </a>
+
+            <a
+                href="#"
+                class="nav-link"
+            >
+                Categories
+            </a>
+
+            <a
+                href="#"
+                class="nav-link"
+            >
+                Glossary
+            </a>
+
+            <a
+                href="#"
+                class="nav-link"
+            >
+                About
+            </a>
+
+        </div>
+
+    </div>
+</nav>

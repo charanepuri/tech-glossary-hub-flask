@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -13,55 +15,40 @@
         content="Tech Glossary Hub - Explore technical concepts and developer terminology."
     >
 
-    <title>Tech Glossary Hub || FLASK Version</title>
+    <title>
+        {% block title %}
+            Tech Glossary Hub
+        {% endblock %}
+    </title>
 
     <link
         rel="stylesheet"
         href="{{ url_for('static', filename='css/style.css') }}"
     >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/components.css') }}?v=1"
+    >
+
 </head>
+
 
 <body>
 
-    <header class="site-header">
-        <div class="container">
-
-            <h1>Tech Glossary Hub</h1>
-
-            <p>Explore. Learn. Understand.</p>
-
-        </div>
-    </header>
+    {% include "components/navbar.html" %}
 
 
-    <main class="container">
+    <main class="main-content">
 
-        <section class="hero">
+        {% block content %}
 
-            <h2>Welcome to Tech Glossary Hub</h2>
-
-            <p>
-                Explore technical concepts across backend development,
-                APIs, security, architecture, databases, testing,
-                deployment, and more.
-            </p>
-
-        </section>
+        {% endblock %}
 
     </main>
 
 
-    <footer class="site-footer">
-
-        <div class="container">
-
-            <p>
-                &copy; 2026 Tech Glossary Hub
-            </p>
-
-        </div>
-
-    </footer>
+    {% include "components/footer.html" %}
 
 
     <script
@@ -69,4 +56,5 @@
     ></script>
 
 </body>
+
 </html>

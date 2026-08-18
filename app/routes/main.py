@@ -9,4 +9,4 @@ main_bp = Blueprint(
 
 @main_bp.route("/")
 def home():
-    return render_template("base.html")
+    return render_template("home.html")
