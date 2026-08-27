@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+    Categories | Tech Glossary Hub
+{% endblock %}
+
+
+{% block content %}
+
+<section class="page-header">
+
+    <div class="container">
+
+        <span class="eyebrow">
+            EXPLORE
+        </span>
+
+        <h1>
+            Knowledge Categories
+        </h1>
+
+        <p>
+            Explore technical concepts organized into
+            focused learning areas.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="categories-page-section">
+
+    <div class="container">
+
+        {% if categories %}
+
+        <div class="category-grid category-grid-page">
+
+            {% for category in categories %}
+
+            <a
+                href="{{ url_for(
+                    'main.category_detail',
+                    slug=category.slug
+                ) }}"
+                class="category-card category-card-link"
+            >
+
+                <div class="category-icon">
+                    {{ "%02d" | format(loop.index) }}
+                </div>
+
+                <div class="category-content">
+
+                    <h2>
+                        {{ category.name }}
+                    </h2>
+
+                    <p>
+                        {{ category.description }}
+                    </p>
+
+                    <span class="category-count">
+                        {{ category.terms | length }}
+                        {% if category.terms | length == 1 %}
+                            term
+                        {% else %}
+                            terms
+                        {% endif %}
+                    </span>
+
+                </div>
+
+                <span class="category-arrow">
+                    →
+                </span>
+
+            </a>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <div class="empty-state">
+
+            <h2>
+                No categories available
+            </h2>
+
+            <p>
+                There are currently no categories to display.
+            </p>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+{% endblock %}

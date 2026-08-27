@@ -190,7 +190,7 @@
 
             {% for category in categories %}
 
-            <article class="category-card">
+            <a href="{{ url_for ('main.category_detail', slug=category.slug) }}" class="category-card category-card-link">
 
                 <div class="category-icon">
                     {{ "%02d" | format(loop.index) }}
@@ -213,7 +213,7 @@
 
                 </div>
 
-            </article>
+            </a>
 
             {% else %}
 

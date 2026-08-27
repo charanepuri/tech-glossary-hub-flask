@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+    {{ category.name }} | Tech Glossary Hub
+{% endblock %}
+
+
+{% block content %}
+
+<section class="category-detail-header">
+
+    <div class="container">
+
+        <a
+            href="{{ url_for('main.categories') }}"
+            class="back-link"
+        >
+            ← Back to Categories
+        </a>
+
+
+        <div class="category-detail-intro">
+
+            <span class="category-detail-icon">
+                &lt;/&gt;
+            </span>
+
+            <div>
+
+                <span class="eyebrow">
+                    CATEGORY
+                </span>
+
+                <h1>
+                    {{ category.name }}
+                </h1>
+
+                <p>
+                    {{ category.description }}
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="category-terms-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="eyebrow">
+                    GLOSSARY
+                </span>
+
+                <h2>
+                    Terms in {{ category.name }}
+                </h2>
+
+            </div>
+
+            <span class="term-total">
+                {{ terms | length }}
+                {% if terms | length == 1 %}
+                    term
+                {% else %}
+                    terms
+                {% endif %}
+            </span>
+
+        </div>
+
+
+        {% if terms %}
+
+        <div class="terms-preview-grid">
+
+            {% for term in terms %}
+
+            <article class="term-preview-card">
+
+                <div class="term-preview-number">
+                    {{ "%02d" | format(loop.index) }}
+                </div>
+
+                <div>
+
+                    <h3>
+                        {{ term.name }}
+                    </h3>
+
+                    <p>
+                        {{ term.definition }}
+                    </p>
+
+                </div>
+
+            </article>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <div class="empty-state">
+
+            <div class="empty-icon">
+                +
+            </div>
+
+            <h2>
+                No glossary terms yet
+            </h2>
+
+            <p>
+                Terms for this category will appear here
+                once they are added.
+            </p>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+{% endblock %}
