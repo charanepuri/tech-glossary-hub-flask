@@ -8,33 +8,271 @@
 
 {% block content %}
 
-<section class="page-placeholder">
+<!-- ========================================
+     Hero Section
+======================================== -->
+
+<section class="hero-section">
+
+    <div class="container hero-container">
+
+        <div class="hero-content">
+
+            <span class="eyebrow">
+                TECHNICAL KNOWLEDGE HUB
+            </span>
+
+            <h1>
+                Understand Technology.
+                <span>One Concept at a Time.</span>
+            </h1>
+
+            <p>
+                Explore technical concepts across Flask,
+                REST APIs, backend architecture, security,
+                databases, testing, deployment, and the
+                Python web ecosystem.
+            </p>
+
+
+            <div class="hero-actions">
+
+                <a href="#" class="btn btn-primary">
+                    Explore Glossary
+                </a>
+
+                <a href="#categories" class="btn btn-secondary">
+                    Browse Categories
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-card">
+
+            <div class="terminal-header">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+            <div class="terminal-body">
+
+                <p>
+                    <span class="terminal-symbol">$</span>
+                    explore technology
+                </p>
+
+                <p class="terminal-output">
+                    {{ total_categories }} categories loaded...
+                </p>
+
+                <p class="terminal-output">
+                    Ready to learn.
+                </p>
+
+                <p>
+                    <span class="terminal-symbol">$</span>
+                    _
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================
+     Statistics
+======================================== -->
+
+<section class="stats-section">
+
+    <div class="container stats-grid">
+
+        <div class="stat-card">
+
+            <span class="stat-number">
+                {{ total_categories }}
+            </span>
+
+            <span class="stat-label">
+                Categories
+            </span>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span class="stat-number">
+                {{ total_terms }}
+            </span>
+
+            <span class="stat-label">
+                Glossary Terms
+            </span>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span class="stat-number">
+                Flask
+            </span>
+
+            <span class="stat-label">
+                Powered By
+            </span>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span class="stat-number">
+                100%
+            </span>
+
+            <span class="stat-label">
+                Learning Focused
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================
+     Categories
+======================================== -->
+
+<section
+    class="categories-section"
+    id="categories"
+>
 
     <div class="container">
 
-        <span class="eyebrow">
-            TECH GLOSSARY HUB
-        </span>
+        <div class="section-heading">
 
-        <h1>
-            Explore the Language
-            of Technology.
-        </h1>
+            <div>
 
-        <p>
-            Discover technical concepts, backend engineering
-            principles, APIs, security, databases, testing,
-            deployment, and more.
-        </p>
+                <span class="eyebrow">
+                    EXPLORE
+                </span>
 
-        <div class="placeholder-actions">
+                <h2>
+                    Browse Knowledge Areas
+                </h2>
 
-            <a href="#" class="btn btn-primary">
-                Explore Glossary
-            </a>
+            </div>
 
-            <a href="#" class="btn btn-secondary">
-                Browse Categories
+            <p>
+                Explore concepts organized into focused
+                technical categories.
+            </p>
+
+        </div>
+
+
+        <div class="category-grid">
+
+            {% for category in categories %}
+
+            <article class="category-card">
+
+                <div class="category-icon">
+                    {{ "%02d" | format(loop.index) }}
+                </div>
+
+                <div class="category-content">
+
+                    <h3>
+                        {{ category.name }}
+                    </h3>
+
+                    <p>
+                        {{ category.description }}
+                    </p>
+
+                    <span class="category-count">
+                        {{ category.terms | length }}
+                        terms
+                    </span>
+
+                </div>
+
+            </article>
+
+            {% else %}
+
+            <div class="empty-state">
+
+                <h3>
+                    No categories available
+                </h3>
+
+                <p>
+                    Categories will appear here once
+                    they are added to the database.
+                </p>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================
+     Learning Section
+======================================== -->
+
+<section class="learning-section">
+
+    <div class="container">
+
+        <div class="learning-card">
+
+            <div>
+
+                <span class="eyebrow">
+                    KEEP LEARNING
+                </span>
+
+                <h2>
+                    Build Strong Technical Foundations.
+                </h2>
+
+                <p>
+                    Learn concepts by understanding what they
+                    mean, why they matter, and where they are
+                    used in real-world development.
+                </p>
+
+            </div>
+
+
+            <a
+                href="#categories"
+                class="btn btn-primary"
+            >
+                Start Exploring
             </a>
 
         </div>
