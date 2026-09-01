@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+    {{ term.name }} | Tech Glossary Hub
+{% endblock %}
+
+
+{% block content %}
+
+<section class="term-detail-header">
+
+    <div class="container">
+
+        <a
+            href="{{ url_for('main.glossary') }}"
+            class="back-link"
+        >
+            ← Back to Glossary
+        </a>
+
+
+        <div class="term-heading">
+
+            <span class="term-detail-index">
+                TERM
+            </span>
+
+            <h1>
+                {{ term.name }}
+            </h1>
+
+            <a
+                href="{{ url_for(
+                    'main.category_detail',
+                    slug=term.category.slug
+                ) }}"
+                class="term-category-link"
+            >
+                {{ term.category.name }}
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="term-detail-section">
+
+    <div class="container">
+
+        <div class="term-detail-layout">
+
+            <article class="term-content">
+
+                <div class="content-block">
+
+                    <span class="content-label">
+                        DEFINITION
+                    </span>
+
+                    <h2>
+                        What is {{ term.name }}?
+                    </h2>
+
+                    <p>
+                        {{ term.definition }}
+                    </p>
+
+                </div>
+
+
+                {% if term.example %}
+
+                <div class="content-block example-block">
+
+                    <span class="content-label">
+                        EXAMPLE
+                    </span>
+
+                    <h2>
+                        Practical Example
+                    </h2>
+
+                    <div class="example-content">
+                        {{ term.example }}
+                    </div>
+
+                </div>
+
+                {% endif %}
+
+            </article>
+
+
+            <aside class="term-sidebar">
+
+                <div class="sidebar-card">
+
+                    <span class="content-label">
+                        CATEGORY
+                    </span>
+
+                    <h3>
+                        {{ term.category.name }}
+                    </h3>
+
+                    <p>
+                        {{ term.category.description }}
+                    </p>
+
+                    <a
+                        href="{{ url_for(
+                            'main.category_detail',
+                            slug=term.category.slug
+                        ) }}"
+                        class="btn btn-secondary"
+                    >
+                        View Category
+                    </a>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+    Glossary | Tech Glossary Hub
+{% endblock %}
+
+
+{% block content %}
+
+<section class="page-header">
+
+    <div class="container">
+
+        <span class="eyebrow">
+            GLOSSARY
+        </span>
+
+        <h1>
+            Technical Glossary
+        </h1>
+
+        <p>
+            Explore technical terms and concepts across
+            the Flask backend development ecosystem.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="glossary-section">
+
+    <div class="container">
+
+        {% if terms %}
+
+        <div class="glossary-grid">
+
+            {% for term in terms %}
+
+            <a
+                href="{{ url_for(
+                    'main.term_detail',
+                    slug=term.slug
+                ) }}"
+                class="glossary-card"
+            >
+
+                <div class="glossary-card-top">
+
+                    <span class="term-index">
+                        {{ "%02d" | format(loop.index) }}
+                    </span>
+
+                    <span class="term-category">
+                        {{ term.category.name }}
+                    </span>
+
+                </div>
+
+
+                <h2>
+                    {{ term.name }}
+                </h2>
+
+
+                <p>
+                    {{ term.definition }}
+                </p>
+
+
+                <span class="read-more">
+                    View definition →
+                </span>
+
+            </a>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <div class="empty-state">
+
+            <div class="empty-icon">
+                +
+            </div>
+
+            <h2>
+                No glossary terms available
+            </h2>
+
+            <p>
+                Glossary terms will appear here once
+                they are added to the database.
+            </p>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+{% endblock %}

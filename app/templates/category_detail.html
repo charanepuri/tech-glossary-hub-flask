@@ -85,7 +85,7 @@
 
             {% for term in terms %}
 
-            <article class="term-preview-card">
+            <a href="{{ url_for('main.term_detail',slug=term.slug) }}" class="term-preview-card">
 
                 <div class="term-preview-number">
                     {{ "%02d" | format(loop.index) }}
@@ -103,7 +103,7 @@
 
                 </div>
 
-            </article>
+            </a>
 
             {% endfor %}
 

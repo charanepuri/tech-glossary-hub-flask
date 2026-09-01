@@ -11,7 +11,9 @@ main_bp = Blueprint(
 
 @main_bp.route("/")
 def home():
-    categories = Category.query.order_by(Category.name.asc()).all()
+    categories = Category.query.order_by(
+        Category.name.asc()
+    ).all()
 
     total_categories = Category.query.count()
     total_terms = GlossaryTerm.query.count()
@@ -26,7 +28,9 @@ def home():
 
 @main_bp.route("/categories")
 def categories():
-    categories = Category.query.order_by(Category.name.asc()).all()
+    categories = Category.query.order_by(
+        Category.name.asc()
+    ).all()
 
     return render_template(
         "categories.html",
@@ -50,4 +54,28 @@ def category_detail(slug):
         "category_detail.html",
         category=category,
         terms=terms
+    )
+
+
+@main_bp.route("/glossary")
+def glossary():
+    terms = GlossaryTerm.query.order_by(
+        GlossaryTerm.name.asc()
+    ).all()
+
+    return render_template(
+        "glossary.html",
+        terms=terms
+    )
+
+
+@main_bp.route("/term/<slug>")
+def term_detail(slug):
+    term = GlossaryTerm.query.filter_by(
+        slug=slug
+    ).first_or_404()
+
+    return render_template(
+        "term_detail.html",
+        term=term
     )

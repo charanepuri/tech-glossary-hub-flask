@@ -1067,3 +1067,381 @@ p {
     }
 
 }
+
+/* ========================================
+   Glossary
+======================================== */
+
+.glossary-section {
+    padding: 65px 0 110px;
+}
+
+
+.glossary-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+
+.glossary-card {
+    display: block;
+
+    padding: 25px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-md);
+
+    color: inherit;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.glossary-card:hover {
+    transform: translateY(-4px);
+
+    background: var(--surface-light);
+
+    border-color:
+        rgba(56, 189, 248, 0.35);
+}
+
+
+.glossary-card-top {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+
+.term-index {
+    color: var(--primary);
+
+    font-family: monospace;
+
+    font-size: 0.75rem;
+
+    font-weight: 700;
+}
+
+
+.term-category {
+    padding: 5px 9px;
+
+    background:
+        rgba(56, 189, 248, 0.08);
+
+    border-radius: 999px;
+
+    color: var(--muted);
+
+    font-size: 0.7rem;
+}
+
+
+.glossary-card h2 {
+    margin-bottom: 10px;
+
+    font-size: 1.2rem;
+}
+
+
+.glossary-card p {
+    margin-bottom: 20px;
+
+    display: -webkit-box;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+
+    overflow: hidden;
+
+    font-size: 0.88rem;
+}
+
+
+.read-more {
+    color: var(--primary);
+
+    font-size: 0.8rem;
+
+    font-weight: 600;
+}
+
+
+/* ========================================
+   Term Detail
+======================================== */
+
+.term-detail-header {
+    padding: 55px 0 65px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.term-heading {
+    max-width: 900px;
+}
+
+
+.term-detail-index {
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    color: var(--primary);
+
+    font-family: monospace;
+
+    font-size: 0.75rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+}
+
+
+.term-heading h1 {
+    margin-bottom: 18px;
+
+    font-size: clamp(
+        2.8rem,
+        6vw,
+        5rem
+    );
+
+    letter-spacing: -0.05em;
+}
+
+
+.term-category-link {
+    display: inline-flex;
+
+    padding: 7px 12px;
+
+    background:
+        rgba(56, 189, 248, 0.08);
+
+    border: 1px solid
+        rgba(56, 189, 248, 0.15);
+
+    border-radius: 999px;
+
+    color: var(--primary);
+
+    font-size: 0.8rem;
+
+    font-weight: 600;
+}
+
+
+.term-detail-section {
+    padding: 70px 0 110px;
+}
+
+
+.term-detail-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        320px;
+
+    gap: 60px;
+
+    align-items: start;
+}
+
+
+.term-content {
+    max-width: 800px;
+}
+
+
+.content-block {
+    margin-bottom: 55px;
+}
+
+
+.content-label {
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: var(--primary);
+
+    font-family: monospace;
+
+    font-size: 0.75rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.1em;
+}
+
+
+.content-block h2 {
+    margin-bottom: 18px;
+
+    font-size: clamp(
+        1.6rem,
+        3vw,
+        2.2rem
+    );
+}
+
+
+.content-block p {
+    font-size: 1rem;
+
+    line-height: 1.85;
+}
+
+
+/* Example */
+
+.example-block {
+    padding: 30px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-md);
+}
+
+
+.example-content {
+    padding: 20px;
+
+    background: #080d18;
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-sm);
+
+    color: var(--text-secondary);
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 0.9rem;
+
+    line-height: 1.7;
+
+    white-space: pre-wrap;
+}
+
+
+/* Sidebar */
+
+.term-sidebar {
+    position: sticky;
+
+    top: 100px;
+}
+
+
+.sidebar-card {
+    padding: 25px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-md);
+}
+
+
+.sidebar-card h3 {
+    margin-bottom: 12px;
+
+    font-size: 1.15rem;
+}
+
+
+.sidebar-card p {
+    margin-bottom: 20px;
+
+    font-size: 0.85rem;
+}
+
+
+.sidebar-card .btn {
+    width: 100%;
+}
+
+
+/* ========================================
+   Glossary Responsive
+======================================== */
+
+@media (max-width: 1000px) {
+
+    .glossary-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .term-detail-layout {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+
+    .term-sidebar {
+        position: static;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .glossary-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .glossary-section {
+        padding: 50px 0 80px;
+    }
+
+
+    .term-detail-header {
+        padding: 45px 0 50px;
+    }
+
+
+    .term-detail-section {
+        padding: 50px 0 80px;
+    }
+
+
+    .example-block {
+        padding: 22px;
+    }
+
+}
