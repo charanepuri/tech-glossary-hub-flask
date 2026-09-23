@@ -10,7 +10,7 @@ __pycache__/
 .env
 
 # Flask
-instance/
+instance/__pycache__/
 
 # IDE
 .vscode/
@@ -27,7 +27,3 @@ htmlcov/
 
 # Logs
 *.log
-
-# Database
-instance/
-*.db

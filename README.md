@@ -605,6 +605,9 @@ Tech Glossary Hub is being developed across multiple technologies.
 **GitHub:**
 https://github.com/charanepuri/tech-glossary-hub-flask
 
+**Live:**
+https://tech-glossary-hub-flask.onrender.com/
+
 ### 🐍 Django Version
 
 **GitHub:**
@@ -644,6 +647,7 @@ https://tech-glossary-hub-angular.vercel.app/home
 | Resource       | Link                                                     |
 | -------------- | -------------------------------------------------------- |
 | Flask GitHub   | https://github.com/charanepuri/tech-glossary-hub-flask   |
+| Flask Live     | https://tech-glossary-hub-flask.onrender.com/            |
 | Django GitHub  | https://github.com/charanepuri/tech-glossary-hub         |
 | Django Live    | https://tech-glossary-hub.onrender.com/                  |
 | HTML GitHub    | https://github.com/charanepuri/tech-glossary-hub-html    |
