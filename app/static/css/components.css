@@ -278,3 +278,255 @@
     }
 
 }
+
+/* ============================================
+   FOOTER
+============================================ */
+
+.site-footer {
+    margin-top: 80px;
+
+    padding: 60px 0 24px;
+
+    background: var(--surface);
+
+    border-top: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+
+.footer-grid {
+    display: grid;
+
+    grid-template-columns:
+        1.4fr
+        1fr
+        1fr
+        1.2fr;
+
+    gap: 48px;
+
+    padding-bottom: 48px;
+}
+
+
+/* ============================================
+   FOOTER COLUMNS
+============================================ */
+
+.footer-column {
+    min-width: 0;
+}
+
+
+.footer-title {
+    margin: 0 0 20px;
+
+    color: var(--text);
+
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+
+.footer-project-name {
+    margin: 0 0 8px;
+
+    color: var(--primary);
+
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+
+.footer-tagline {
+    margin: 0 0 14px;
+
+    color: var(--text);
+
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    line-height: 1.6;
+}
+
+
+.footer-description {
+    margin: 0 0 18px;
+
+    color: var(--text-secondary);
+
+    font-size: 0.9rem;
+
+    line-height: 1.7;
+}
+
+
+.footer-copyright {
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 0.85rem;
+
+    line-height: 1.6;
+}
+
+
+/* ============================================
+   FOOTER LINKS
+============================================ */
+
+.footer-links {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    margin: 0;
+
+    padding: 0;
+
+    list-style: none;
+}
+
+
+.footer-links a {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--text-secondary);
+
+    font-size: 0.9rem;
+
+    text-decoration: none;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.footer-links a:hover {
+    color: var(--primary);
+
+    transform: translateX(3px);
+}
+
+
+.footer-disabled-link {
+    cursor: default;
+
+    opacity: 0.7;
+}
+
+
+.footer-disabled-link:hover {
+    color: var(--text-secondary) !important;
+
+    transform: none !important;
+}
+
+
+/* ============================================
+   PORTFOLIO LINKS
+============================================ */
+
+.portfolio-links a {
+    width: 100%;
+
+    justify-content: space-between;
+}
+
+
+.portfolio-links a span:last-child {
+    color: var(--primary);
+
+    transition: transform 0.2s ease;
+}
+
+
+.portfolio-links a:hover span:last-child {
+    transform: translateX(4px);
+}
+
+
+/* ============================================
+   FOOTER BOTTOM
+============================================ */
+
+.footer-bottom {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding-top: 24px;
+
+    border-top: 1px solid rgba(148, 163, 184, 0.10);
+}
+
+
+.footer-bottom p {
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 0.9rem;
+
+    text-align: center;
+}
+
+
+.footer-bottom strong {
+    color: var(--text);
+}
+
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+
+@media (max-width: 1000px) {
+
+    .footer-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 36px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .site-footer {
+        margin-top: 60px;
+
+        padding: 45px 0 20px;
+    }
+
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+
+        gap: 32px;
+
+        padding-bottom: 36px;
+    }
+
+
+    .footer-column {
+        padding-bottom: 4px;
+    }
+
+
+    .footer-bottom {
+        padding-top: 20px;
+    }
+
+}

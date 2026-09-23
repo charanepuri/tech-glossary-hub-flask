@@ -1,56 +1,223 @@
-<footer class="footer">
+<footer class="site-footer">
 
-    <div class="container footer-container">
+    <div class="container">
 
-        <div class="footer-brand">
+        <!-- ============================================
+             FOOTER MAIN
+        ============================================= -->
 
-            <a
-                href="{{ url_for('main.home') }}"
-                class="brand"
-            >
-                <span class="brand-mark">&lt;/&gt;</span>
-                <span class="brand-text">
+        <div class="footer-grid">
+
+
+            <!-- ========================================
+                 ABOUT
+            ========================================= -->
+
+            <div class="footer-column">
+
+                <h3 class="footer-title">
+                    About
+                </h3>
+
+                <p class="footer-project-name">
                     Tech Glossary Hub
-                </span>
-            </a>
+                </p>
+
+                <p class="footer-tagline">
+                    A technical glossary for exploring
+                    web development and backend technologies.
+                </p>
+
+                <p class="footer-description">
+                    Developed using modern web technologies.
+                </p>
+
+                <p class="footer-copyright">
+                    © 2026 Built by Epuri Charan Teja
+                </p>
+
+            </div>
+
+
+            <!-- ========================================
+                 PROJECT
+            ========================================= -->
+
+            <div class="footer-column">
+
+                <h3 class="footer-title">
+                    Project
+                </h3>
+
+                <ul class="footer-links">
+
+                    <li>
+
+                        <a
+                            href="https://github.com/charanepuri/tech-glossary-hub-flask"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            GitHub Repository
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a
+                            href="#"
+                            class="footer-disabled-link"
+                        >
+                            Documentation
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- ========================================
+                 CONNECT
+            ========================================= -->
+
+            <div class="footer-column">
+
+                <h3 class="footer-title">
+                    Connect
+                </h3>
+
+                <ul class="footer-links">
+
+                    <li>
+
+                        <a
+                            href="https://github.com/charanepuri"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            GitHub
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a
+                            href="https://www.linkedin.com/in/charan-teja-972aa9231"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            LinkedIn
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- ========================================
+                 EXPLORE PORTFOLIOS
+            ========================================= -->
+
+            <div class="footer-column">
+
+                <h3 class="footer-title">
+                    Explore Portfolios
+                </h3>
+
+                <ul class="footer-links portfolio-links">
+
+                    <li>
+
+                        <a
+                            href="https://charanepuri.github.io/PORTFOLIO-USING-HTML-CSS-JS"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <span>Basic</span>
+                            <span>→</span>
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a
+                            href="https://portfolio-site-django.onrender.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <span>Django</span>
+                            <span>→</span>
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a
+                            href="https://charan-react-portfolio.vercel.app"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <span>React</span>
+                            <span>→</span>
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a
+                            href="https://flask-developer-dashboard-portfolio.onrender.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <span>Flask</span>
+                            <span>→</span>
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a
+                            href="https://angular-portfolio-sigma-eight.vercel.app/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <span>Angular</span>
+                            <span>→</span>
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- ============================================
+             FOOTER BOTTOM
+        ============================================= -->
+
+        <div class="footer-bottom">
 
             <p>
-                A developer-focused glossary for learning
-                technical concepts.
+                Made with 💛 by
+                <strong>
+                    Charan Teja Epuri
+                </strong>
             </p>
 
         </div>
-
-
-        <div class="footer-links">
-
-            <a href="{{ url_for('main.home') }}">
-                Home
-            </a>
-
-            <a href="{{ url_for('main.categories') }}">
-                Categories
-            </a>
-
-            <a href="{{ url_for('main.glossary') }}">
-                Glossary
-            </a>
-
-            <a href="#">
-                About
-            </a>
-
-        </div>
-
-    </div>
-
-
-    <div class="container footer-bottom">
-
-        <p>
-            &copy; 2026 Tech Glossary Hub.
-            Built with Flask.
-        </p>
 
     </div>
 
