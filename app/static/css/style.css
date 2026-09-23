@@ -1770,3 +1770,250 @@ p {
     }
 
 }
+
+/* ============================================
+   VERSIONS PAGE
+============================================ */
+
+.versions-section {
+    padding: 70px 0;
+}
+
+
+.versions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+
+.version-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    background: var(--surface);
+
+    border: 1px solid rgba(148, 163, 184, 0.12);
+
+    border-radius: 18px;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.version-card:hover {
+    transform: translateY(-4px);
+
+    border-color: rgba(56, 189, 248, 0.35);
+
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.20);
+}
+
+
+.version-card.current-version {
+    border-color: rgba(56, 189, 248, 0.45);
+}
+
+
+.version-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 22px 24px;
+
+    background: var(--surface-light);
+
+    border-bottom: 1px solid rgba(148, 163, 184, 0.10);
+}
+
+
+.version-badge {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 6px 10px;
+
+    border-radius: 999px;
+
+    background: rgba(56, 189, 248, 0.10);
+
+    color: var(--primary);
+
+    font-size: 0.72rem;
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+}
+
+
+.version-number {
+    color: var(--muted);
+
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+
+.version-card-content {
+    display: flex;
+    flex-direction: column;
+
+    padding: 28px 24px;
+
+    height: 100%;
+}
+
+
+.version-card-content h2 {
+    margin: 0 0 10px;
+
+    color: var(--text);
+
+    font-size: 1.6rem;
+}
+
+
+.version-description {
+    margin: 0 0 24px;
+
+    color: var(--text-secondary);
+
+    line-height: 1.7;
+}
+
+
+.version-info {
+    margin-bottom: 18px;
+}
+
+
+.version-label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--muted);
+
+    font-size: 0.72rem;
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+}
+
+
+.version-link {
+    display: inline-block;
+
+    color: var(--primary);
+
+    font-size: 0.9rem;
+    line-height: 1.6;
+
+    overflow-wrap: anywhere;
+
+    transition: color 0.2s ease;
+}
+
+
+.version-link:hover {
+    color: var(--text);
+}
+
+
+.version-preview {
+    margin: 6px 0 24px;
+
+    padding: 18px;
+
+    border-radius: 12px;
+}
+
+
+.version-preview.notice {
+    background: rgba(148, 163, 184, 0.06);
+
+    border: 1px solid rgba(148, 163, 184, 0.10);
+}
+
+
+.version-preview p {
+    margin: 0 0 10px;
+
+    color: var(--text-secondary);
+
+    font-size: 0.9rem;
+
+    line-height: 1.7;
+}
+
+
+.version-preview p:last-child {
+    margin-bottom: 0;
+}
+
+
+.version-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-top: auto;
+}
+
+
+.version-actions .btn {
+    flex: 1;
+    min-width: 180px;
+
+    text-align: center;
+}
+
+
+/* ============================================
+   RESPONSIVE DESIGN
+============================================ */
+
+@media (max-width: 900px) {
+
+    .versions-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .versions-section {
+        padding: 50px 0;
+    }
+
+
+    .version-card-header {
+        padding: 18px;
+    }
+
+
+    .version-card-content {
+        padding: 22px 18px;
+    }
+
+
+    .version-actions {
+        flex-direction: column;
+    }
+
+
+    .version-actions .btn {
+        width: 100%;
+        min-width: 0;
+    }
+
+}
