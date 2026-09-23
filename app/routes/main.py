@@ -89,6 +89,18 @@ def versions():
         "versions.html"
     )
     
+
+# ============================================
+# CONTACT
+# ============================================
+
+@main_bp.route("/contact")
+def contact():
+
+    return render_template(
+        "contact.html"
+    )
+    
     
 # ============================================
 # GLOSSARY
