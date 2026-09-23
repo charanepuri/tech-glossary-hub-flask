@@ -8,9 +8,9 @@
 
 {% block content %}
 
-<!-- ============================================
+<!-- =========================================================
      TERM DETAIL HEADER
-============================================ -->
+========================================================= -->
 
 <section class="term-detail-header">
 
@@ -21,6 +21,7 @@
         <a
             href="{{ url_for('main.glossary') }}"
             class="back-link"
+            aria-label="Back to glossary"
         >
             ← Back to Glossary
         </a>
@@ -30,23 +31,47 @@
 
         <div class="term-heading">
 
+            <!-- Term Label -->
+
             <span class="term-detail-index">
                 TERM
             </span>
+
+
+            <!-- Term Name -->
 
             <h1>
                 {{ term.name }}
             </h1>
 
-            <a
-                href="{{ url_for(
-                    'main.category_detail',
-                    slug=term.category.slug
-                ) }}"
-                class="term-category-link"
-            >
-                {{ term.category.name }}
-            </a>
+
+            <!-- Term Metadata -->
+
+            <div class="term-detail-meta">
+
+                <!-- Category -->
+
+                <a
+                    href="{{ url_for(
+                        'main.category_detail',
+                        slug=term.category.slug
+                    ) }}"
+                    class="term-detail-category"
+                >
+                    {{ term.category.name }}
+                </a>
+
+
+                <!-- Difficulty Level -->
+
+                <span
+                    class="term-detail-level"
+                    aria-label="Difficulty level: {{ term.level }}"
+                >
+                    {{ term.level }}
+                </span>
+
+            </div>
 
         </div>
 
@@ -55,9 +80,9 @@
 </section>
 
 
-<!-- ============================================
+<!-- =========================================================
      TERM DETAIL CONTENT
-============================================ -->
+========================================================= -->
 
 <section class="term-detail-section">
 
@@ -65,13 +90,17 @@
 
         <div class="term-detail-layout">
 
-            <!-- ====================================
+
+            <!-- =================================================
                  MAIN CONTENT
-            ===================================== -->
+            ================================================== -->
 
             <article class="term-content">
 
-                <!-- Definition -->
+
+                <!-- =============================================
+                     DEFINITION
+                ============================================== -->
 
                 <div class="content-block">
 
@@ -79,9 +108,11 @@
                         DEFINITION
                     </span>
 
+
                     <h2>
                         What is {{ term.name }}?
                     </h2>
+
 
                     <p>
                         {{ term.definition }}
@@ -90,7 +121,9 @@
                 </div>
 
 
-                <!-- Example -->
+                <!-- =============================================
+                     EXAMPLE
+                ============================================== -->
 
                 {% if term.example %}
 
@@ -100,9 +133,11 @@
                         EXAMPLE
                     </span>
 
+
                     <h2>
                         Practical Example
                     </h2>
+
 
                     <div class="example-content">
                         {{ term.example }}
@@ -112,14 +147,23 @@
 
                 {% endif %}
 
+
             </article>
 
 
-            <!-- ====================================
+            <!-- =================================================
                  SIDEBAR
-            ===================================== -->
+            ================================================== -->
 
-            <aside class="term-sidebar">
+            <aside
+                class="term-sidebar"
+                aria-label="Term information"
+            >
+
+
+                <!-- =============================================
+                     CATEGORY CARD
+                ============================================== -->
 
                 <div class="sidebar-card">
 
@@ -127,9 +171,11 @@
                         CATEGORY
                     </span>
 
+
                     <h3>
                         {{ term.category.name }}
                     </h3>
+
 
                     {% if term.category.description %}
 
@@ -138,6 +184,7 @@
                     </p>
 
                     {% endif %}
+
 
                     <a
                         href="{{ url_for(
@@ -151,6 +198,32 @@
 
                 </div>
 
+
+                <!-- =============================================
+                     LEVEL CARD
+                ============================================== -->
+
+                <div class="sidebar-card">
+
+                    <span class="content-label">
+                        DIFFICULTY LEVEL
+                    </span>
+
+
+                    <h3>
+                        {{ term.level }}
+                    </h3>
+
+
+                    <p>
+                        This glossary term is classified as
+                        <strong>{{ term.level }}</strong>
+                        level content.
+                    </p>
+
+                </div>
+
+
             </aside>
 
         </div>
@@ -160,9 +233,9 @@
 </section>
 
 
-<!-- ============================================
+<!-- =========================================================
      PREVIOUS / NEXT TERM NAVIGATION
-============================================ -->
+========================================================= -->
 
 <section class="term-navigation-section">
 
@@ -173,7 +246,10 @@
             aria-label="Term navigation"
         >
 
-            <!-- Previous Term -->
+
+            <!-- =================================================
+                 PREVIOUS TERM
+            ================================================== -->
 
             <div class="term-navigation-item">
 
@@ -192,6 +268,7 @@
                         ← Previous
                     </span>
 
+
                     <strong>
                         {{ previous_term.name }}
                     </strong>
@@ -204,13 +281,16 @@
                     class="term-nav-link disabled"
                     aria-disabled="true"
                 >
+
                     <span class="term-nav-direction">
                         ← Previous
                     </span>
 
+
                     <strong>
                         No previous term
                     </strong>
+
                 </span>
 
                 {% endif %}
@@ -218,7 +298,9 @@
             </div>
 
 
-            <!-- Next Term -->
+            <!-- =================================================
+                 NEXT TERM
+            ================================================== -->
 
             <div class="term-navigation-item">
 
@@ -237,6 +319,7 @@
                         Next →
                     </span>
 
+
                     <strong>
                         {{ next_term.name }}
                     </strong>
@@ -249,18 +332,22 @@
                     class="term-nav-link disabled term-nav-next"
                     aria-disabled="true"
                 >
+
                     <span class="term-nav-direction">
                         Next →
                     </span>
 
+
                     <strong>
                         No next term
                     </strong>
+
                 </span>
 
                 {% endif %}
 
             </div>
+
 
         </nav>
 
@@ -269,9 +356,9 @@
 </section>
 
 
-<!-- ============================================
+<!-- =========================================================
      RELATED TERMS
-============================================ -->
+========================================================= -->
 
 {% if related_terms %}
 
@@ -279,7 +366,10 @@
 
     <div class="container">
 
-        <!-- Section Header -->
+
+        <!-- =================================================
+             SECTION HEADER
+        ================================================== -->
 
         <div class="section-heading">
 
@@ -288,6 +378,7 @@
                 <span class="eyebrow">
                     KEEP EXPLORING
                 </span>
+
 
                 <h2>
                     Related Terms
@@ -309,7 +400,9 @@
         </div>
 
 
-        <!-- Related Terms Grid -->
+        <!-- =================================================
+             RELATED TERMS GRID
+        ================================================== -->
 
         <div class="related-terms-grid">
 
@@ -321,22 +414,38 @@
                     slug=related_term.slug
                 ) }}"
                 class="related-term-card"
+                aria-label="Learn more about {{ related_term.name }}"
             >
+
+                <!-- Related Term Number -->
 
                 <span class="term-index">
                     {{ "%02d" | format(loop.index) }}
                 </span>
 
 
+                <!-- Related Term Name -->
+
                 <h3>
                     {{ related_term.name }}
                 </h3>
 
 
+                <!-- Related Term Definition -->
+
                 <p>
                     {{ related_term.definition }}
                 </p>
 
+
+                <!-- Related Term Level -->
+
+                <span class="term-level">
+                    {{ related_term.level }}
+                </span>
+
+
+                <!-- Read More -->
 
                 <span class="read-more">
                     Learn more →
@@ -353,5 +462,6 @@
 </section>
 
 {% endif %}
+
 
 {% endblock %}

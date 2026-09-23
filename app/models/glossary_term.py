@@ -33,6 +33,12 @@ class GlossaryTerm(db.Model):
         nullable=True
     )
 
+    level = db.Column(
+        db.String(20),
+        nullable=False,
+        default="Beginner"
+    )
+
     category_id = db.Column(
         db.Integer,
         db.ForeignKey("categories.id"),
