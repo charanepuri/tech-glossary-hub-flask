@@ -1445,3 +1445,328 @@ p {
     }
 
 }
+
+/* ========================================
+   Pagination
+======================================== */
+
+.pagination {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 45px;
+
+    flex-wrap: wrap;
+}
+
+
+.pagination-pages {
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+}
+
+
+.pagination-link {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 40px;
+    min-height: 40px;
+
+    padding: 0 12px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-sm);
+
+    color: var(--text-secondary);
+
+    font-size: 0.85rem;
+
+    text-decoration: none;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.pagination-link:hover {
+    transform: translateY(-2px);
+
+    background: var(--surface-light);
+
+    border-color:
+        rgba(56, 189, 248, 0.35);
+
+    color: var(--text);
+}
+
+
+.pagination-link.active {
+    background: var(--primary);
+
+    border-color: var(--primary);
+
+    color: #082f49;
+
+    font-weight: 700;
+
+    cursor: default;
+}
+
+
+.pagination-ellipsis {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 30px;
+    min-height: 40px;
+
+    color: var(--muted);
+}
+
+
+/* ========================================
+   Pagination Responsive
+======================================== */
+
+@media (max-width: 500px) {
+
+    .pagination {
+        gap: 7px;
+    }
+
+
+    .pagination-link {
+        min-width: 36px;
+        min-height: 36px;
+
+        padding: 0 9px;
+
+        font-size: 0.78rem;
+    }
+
+}
+
+.results-meta {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.page-info {
+    color: var(--muted);
+
+    font-size: 0.8rem;
+}
+
+
+/* ========================================
+   Related Terms
+======================================== */
+
+.related-terms-section {
+    padding: 20px 0 110px;
+
+    border-top: 1px solid var(--border);
+}
+
+
+.related-terms-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 16px;
+}
+
+
+.related-term-card {
+    display: block;
+
+    padding: 22px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-md);
+
+    color: inherit;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.related-term-card:hover {
+    transform: translateY(-4px);
+
+    background: var(--surface-light);
+
+    border-color:
+        rgba(56, 189, 248, 0.35);
+}
+
+
+.related-term-card .term-index {
+    display: block;
+
+    margin-bottom: 18px;
+}
+
+
+.related-term-card h3 {
+    margin-bottom: 10px;
+
+    font-size: 1.05rem;
+}
+
+
+.related-term-card p {
+    display: -webkit-box;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+
+    overflow: hidden;
+
+    margin-bottom: 18px;
+
+    font-size: 0.83rem;
+}
+
+
+@media (max-width: 1000px) {
+
+    .related-terms-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .related-terms-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* ========================================
+   Term Navigation
+======================================== */
+
+.term-navigation {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+
+    margin-bottom: 70px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid var(--border);
+}
+
+
+.term-nav-link {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+    padding: 20px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-md);
+
+    color: inherit;
+
+    text-decoration: none;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.term-nav-link:hover {
+    transform: translateY(-3px);
+
+    background: var(--surface-light);
+
+    border-color:
+        rgba(56, 189, 248, 0.35);
+}
+
+
+.term-nav-link span {
+    color: var(--primary);
+
+    font-size: 0.75rem;
+
+    font-weight: 600;
+}
+
+
+.term-nav-link strong {
+    color: var(--text);
+
+    font-size: 0.95rem;
+}
+
+
+.term-nav-next {
+    text-align: right;
+}
+
+
+@media (max-width: 600px) {
+
+    .term-navigation {
+        grid-template-columns: 1fr;
+
+        margin-bottom: 50px;
+    }
+
+
+    .term-nav-next {
+        text-align: left;
+    }
+
+}

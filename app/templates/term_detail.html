@@ -8,9 +8,15 @@
 
 {% block content %}
 
+<!-- ============================================
+     TERM DETAIL HEADER
+============================================ -->
+
 <section class="term-detail-header">
 
     <div class="container">
+
+        <!-- Back to Glossary -->
 
         <a
             href="{{ url_for('main.glossary') }}"
@@ -19,6 +25,8 @@
             ← Back to Glossary
         </a>
 
+
+        <!-- Term Heading -->
 
         <div class="term-heading">
 
@@ -47,13 +55,23 @@
 </section>
 
 
+<!-- ============================================
+     TERM DETAIL CONTENT
+============================================ -->
+
 <section class="term-detail-section">
 
     <div class="container">
 
         <div class="term-detail-layout">
 
+            <!-- ====================================
+                 MAIN CONTENT
+            ===================================== -->
+
             <article class="term-content">
+
+                <!-- Definition -->
 
                 <div class="content-block">
 
@@ -71,6 +89,8 @@
 
                 </div>
 
+
+                <!-- Example -->
 
                 {% if term.example %}
 
@@ -95,6 +115,10 @@
             </article>
 
 
+            <!-- ====================================
+                 SIDEBAR
+            ===================================== -->
+
             <aside class="term-sidebar">
 
                 <div class="sidebar-card">
@@ -107,9 +131,13 @@
                         {{ term.category.name }}
                     </h3>
 
+                    {% if term.category.description %}
+
                     <p>
                         {{ term.category.description }}
                     </p>
+
+                    {% endif %}
 
                     <a
                         href="{{ url_for(
@@ -130,5 +158,200 @@
     </div>
 
 </section>
+
+
+<!-- ============================================
+     PREVIOUS / NEXT TERM NAVIGATION
+============================================ -->
+
+<section class="term-navigation-section">
+
+    <div class="container">
+
+        <nav
+            class="term-navigation"
+            aria-label="Term navigation"
+        >
+
+            <!-- Previous Term -->
+
+            <div class="term-navigation-item">
+
+                {% if previous_term %}
+
+                <a
+                    href="{{ url_for(
+                        'main.term_detail',
+                        slug=previous_term.slug
+                    ) }}"
+                    class="term-nav-link"
+                    aria-label="Previous term: {{ previous_term.name }}"
+                >
+
+                    <span class="term-nav-direction">
+                        ← Previous
+                    </span>
+
+                    <strong>
+                        {{ previous_term.name }}
+                    </strong>
+
+                </a>
+
+                {% else %}
+
+                <span
+                    class="term-nav-link disabled"
+                    aria-disabled="true"
+                >
+                    <span class="term-nav-direction">
+                        ← Previous
+                    </span>
+
+                    <strong>
+                        No previous term
+                    </strong>
+                </span>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- Next Term -->
+
+            <div class="term-navigation-item">
+
+                {% if next_term %}
+
+                <a
+                    href="{{ url_for(
+                        'main.term_detail',
+                        slug=next_term.slug
+                    ) }}"
+                    class="term-nav-link term-nav-next"
+                    aria-label="Next term: {{ next_term.name }}"
+                >
+
+                    <span class="term-nav-direction">
+                        Next →
+                    </span>
+
+                    <strong>
+                        {{ next_term.name }}
+                    </strong>
+
+                </a>
+
+                {% else %}
+
+                <span
+                    class="term-nav-link disabled term-nav-next"
+                    aria-disabled="true"
+                >
+                    <span class="term-nav-direction">
+                        Next →
+                    </span>
+
+                    <strong>
+                        No next term
+                    </strong>
+                </span>
+
+                {% endif %}
+
+            </div>
+
+        </nav>
+
+    </div>
+
+</section>
+
+
+<!-- ============================================
+     RELATED TERMS
+============================================ -->
+
+{% if related_terms %}
+
+<section class="related-terms-section">
+
+    <div class="container">
+
+        <!-- Section Header -->
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="eyebrow">
+                    KEEP EXPLORING
+                </span>
+
+                <h2>
+                    Related Terms
+                </h2>
+
+            </div>
+
+
+            <a
+                href="{{ url_for(
+                    'main.category_detail',
+                    slug=term.category.slug
+                ) }}"
+                class="btn btn-secondary"
+            >
+                View Category
+            </a>
+
+        </div>
+
+
+        <!-- Related Terms Grid -->
+
+        <div class="related-terms-grid">
+
+            {% for related_term in related_terms %}
+
+            <a
+                href="{{ url_for(
+                    'main.term_detail',
+                    slug=related_term.slug
+                ) }}"
+                class="related-term-card"
+            >
+
+                <span class="term-index">
+                    {{ "%02d" | format(loop.index) }}
+                </span>
+
+
+                <h3>
+                    {{ related_term.name }}
+                </h3>
+
+
+                <p>
+                    {{ related_term.definition }}
+                </p>
+
+
+                <span class="read-more">
+                    Learn more →
+                </span>
+
+            </a>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endif %}
 
 {% endblock %}
