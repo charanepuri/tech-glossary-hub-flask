@@ -3,6 +3,10 @@
 
 <head>
 
+    <!-- =====================================================
+         BASIC DOCUMENT INFORMATION
+    ====================================================== -->
+
     <meta charset="UTF-8">
 
     <meta
@@ -12,14 +16,34 @@
 
     <meta
         name="description"
-        content="Tech Glossary Hub - Explore technical concepts and developer terminology."
+        content="Tech Glossary Hub — A technical glossary covering Flask, REST APIs, backend development, web security, databases, deployment, and the Python web ecosystem."
     >
+
+    <meta
+        name="author"
+        content="Epuri Charan Teja"
+    >
+
+    <meta
+        name="theme-color"
+        content="#0b1120"
+    >
+
+
+    <!-- =====================================================
+         PAGE TITLE
+    ====================================================== -->
 
     <title>
         {% block title %}
             Tech Glossary Hub
         {% endblock %}
     </title>
+
+
+    <!-- =====================================================
+         GLOBAL STYLES
+    ====================================================== -->
 
     <link
         rel="stylesheet"
@@ -31,29 +55,76 @@
         href="{{ url_for('static', filename='css/components.css') }}?v=1"
     >
 
+
+    <!-- =====================================================
+         ICONS
+    ====================================================== -->
+
+    <link
+        rel="icon"
+        href="{{ url_for('static', filename='images/TGH_Flask.png') }}"
+    >
+
+
+    {% block head %}{% endblock %}
+
 </head>
 
 
 <body>
 
+    <!-- =====================================================
+         SKIP LINK
+         Allows keyboard and screen-reader users to skip
+         repeated navigation.
+    ====================================================== -->
+
+    <a
+        href="#main-content"
+        class="skip-link"
+    >
+        Skip to main content
+    </a>
+
+
+    <!-- =====================================================
+         NAVIGATION
+    ====================================================== -->
+
     {% include "components/navbar.html" %}
 
 
-    <main class="main-content">
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
 
-        {% block content %}
+    <main
+        id="main-content"
+        tabindex="-1"
+    >
 
-        {% endblock %}
+        {% block content %}{% endblock %}
 
     </main>
 
 
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
     {% include "components/footer.html" %}
 
+
+    <!-- =====================================================
+         GLOBAL JAVASCRIPT
+    ====================================================== -->
 
     <script
         src="{{ url_for('static', filename='js/main.js') }}"
     ></script>
+
+
+    {% block scripts %}{% endblock %}
 
 </body>
 
