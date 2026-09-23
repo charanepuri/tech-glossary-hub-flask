@@ -1,5 +1,7 @@
+import subprocess
+import sys
+
 from app import create_app, db
-from seed import seed_categories, seed_terms
 
 
 app = create_app()
@@ -13,11 +15,12 @@ with app.app_context():
     print("Creating database tables...")
     db.create_all()
 
-    print("Seeding categories...")
-    seed_categories()
+print("Running database seed...")
+subprocess.run(
+    [sys.executable, "seed.py"],
+    check=True
+)
 
-    print("Seeding glossary terms...")
-    seed_terms()
-
-    print("Database setup completed.")
-    print("=" * 60)
+print("=" * 60)
+print("Render database setup completed successfully.")
+print("=" * 60)
